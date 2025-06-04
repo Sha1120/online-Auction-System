@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1 { color: #0077cc; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ccc; padding: 8px; }
+th { background-color: #f7f7f7; }
+button { background: #0077cc; color: #fff; border: none; padding: 8px 12px; }
+button:hover { background: #005fa3; }
+form { margin: 0; }
