@@ -1,13 +1,13 @@
 package com.auction.jms;
 
-import com.auction.model.AuctionItem;
+import com.auction.model.Actions;
 import jakarta.ejb.ActivationConfigProperty;
 import jakarta.ejb.MessageDriven;
 import jakarta.jms.*;
 
 @MessageDriven(
         activationConfig = {
-                @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Queue"),
+                @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
                 @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/auctionQueue")
         }
 )
@@ -16,9 +16,9 @@ public class BidUpdateListener implements MessageListener {
     public void onMessage(Message message) {
         try {
             if (message instanceof ObjectMessage) {
-                AuctionItem item = (AuctionItem) ((ObjectMessage) message).getObject();
+                Actions item = (Actions) ((ObjectMessage) message).getObject();
                 // Here you would push update to clients (e.g., via WebSocket or similar)
-                System.out.println("Bid updated: " + item.getName() + " - " + item.getCurrentBid());
+                System.out.println("Bid updated: " + item.getTitle() + " - " + item.getCurrentPrice());
             }
         } catch (JMSException e) {
             e.printStackTrace();

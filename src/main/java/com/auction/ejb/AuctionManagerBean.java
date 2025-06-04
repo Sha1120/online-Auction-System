@@ -1,62 +1,83 @@
 package com.auction.ejb;
 
-import com.auction.model.AuctionItem;
+import com.auction.model.Actions;
+import com.auction.model.User;
 import jakarta.ejb.Stateless;
 import jakarta.annotation.Resource;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.jms.*;
 
-import java.util.*;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 @Stateless
 public class AuctionManagerBean implements AuctionManager {
-    private static final Map<Long, AuctionItem> auctions = new ConcurrentHashMap<>();
-    private static long idCounter = 1;
+
+    @PersistenceContext(unitName = "AuctionPU")
+    private EntityManager em;
 
     @Resource(lookup = "jms/auctionQueue")
     private Queue auctionQueue;
+
     @Resource
     private ConnectionFactory connectionFactory;
 
     @Override
-    public synchronized AuctionItem createAuction(String name, String desc, double startBid, Date endTime) {
-        AuctionItem item = new AuctionItem();
-        item.setId(idCounter++);
-        item.setName(name);
+    public Actions createAuction(String title, String desc, double startBid, Date endDate, User owner) {
+        Actions item = new Actions();
+        item.setTitle(title);
         item.setDescription(desc);
-        item.setStartingBid(startBid);
-        item.setCurrentBid(startBid);
-        item.setEndTime(endTime);
-        item.setActive(true);
-        auctions.put(item.getId(), item);
+        item.setStartPrice(startBid);
+        item.setCurrentPrice(startBid);
+        item.setCreateDate(new Date());
+        item.setEndDate(endDate);
+        item.setUser(owner);
+        // TODO: set ActionStatus and Category as needed
+        em.persist(item);
         return item;
     }
 
     @Override
-    public List<AuctionItem> getAllAuctions() {
-        return new ArrayList<>(auctions.values());
+    public Actions createAuction(String name, String desc, double startBid, Date endTime) {
+        return null;
     }
 
     @Override
-    public synchronized boolean placeBid(long auctionId, String bidder, double amount) {
-        AuctionItem item = auctions.get(auctionId);
-        if (item == null || !item.isActive() || amount <= item.getCurrentBid() || new Date().after(item.getEndTime())) {
+    public List<Actions> getAllAuctions() {
+        return em.createQuery("SELECT a FROM Actions a", Actions.class).getResultList();
+    }
+
+    @Override
+    public boolean placeBid(long auctionId, String bidder, double amount) {
+        return false;
+    }
+
+    @Override
+    public boolean placeBid(long auctionId, User bidder, double amount) {
+        Actions item = em.find(Actions.class, auctionId);
+        if (item == null || amount <= item.getCurrentPrice() || new Date().after(item.getEndDate())) {
             return false;
         }
-        item.setCurrentBid(amount);
-        item.setHighestBidder(bidder);
+        item.setCurrentPrice(amount);
+        // Optionally track highest bidder or add a Bid entity, e.g.:
+        // Bids newBid = new Bids();
+        // newBid.setActions(item);
+        // newBid.setUser(bidder);
+        // newBid.setBidAmount(amount);
+        // newBid.setBidTime(new Date());
+        // em.persist(newBid);
 
-        // Broadcast bid update
+        em.merge(item);
         sendBidUpdate(item);
-
         return true;
     }
 
-    private void sendBidUpdate(AuctionItem item) {
+    private void sendBidUpdate(Actions item) {
         try (JMSContext context = connectionFactory.createContext()) {
-            ObjectMessage msg = context.createObjectMessage(item);
-            context.createProducer().send((Destination) auctionQueue, msg);
+            ObjectMessage msg = context.createObjectMessage((Serializable) item);
+            context.createProducer().send(auctionQueue, msg);
         }
     }
 }
