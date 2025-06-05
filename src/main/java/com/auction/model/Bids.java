@@ -1,34 +1,15 @@
 package com.auction.model;
 
-
-import jakarta.persistence.*;
-
 import java.util.Date;
 
-@Entity
-@Table(name = "bids")
 public class Bids {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "bid_amount", nullable = false)
     private Double bidAmount;
-
-    @Column(name = "bid_time", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date bidTime;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "actions_id", nullable = false)
+    private String user;
     private Actions actions;
 
-    // getters and setters
-
+    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -53,11 +34,11 @@ public class Bids {
         this.bidTime = bidTime;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 

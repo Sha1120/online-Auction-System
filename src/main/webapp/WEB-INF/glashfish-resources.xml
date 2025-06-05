@@ -1,0 +1,12 @@
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <jdbc-connection-pool name="AuctionPool" datasource-classname="com.mysql.cj.jdbc.MysqlDataSource" res-type="javax.sql.DataSource" max-pool-size="32" steady-pool-size="8" pool-resize-quantity="2" idle-timeout-in-seconds="300">
+        <property name="serverName" value="localhost"/>
+        <property name="portNumber" value="3306"/>
+        <property name="databaseName" value="online_actiondb"/>
+        <property name="user" value="root"/>
+        <property name="password" value="Shashika1120"/>
+    </jdbc-connection-pool>
+
+    <jdbc-resource enabled="true" jndi-name="jdbc/auctionDS" pool-name="AuctionPool"/>
+</resources>

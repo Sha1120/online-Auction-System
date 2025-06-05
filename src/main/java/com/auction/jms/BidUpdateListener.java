@@ -1,6 +1,5 @@
 package com.auction.jms;
 
-import com.auction.model.Actions;
 import jakarta.ejb.ActivationConfigProperty;
 import jakarta.ejb.MessageDriven;
 import jakarta.jms.*;
@@ -16,9 +15,11 @@ public class BidUpdateListener implements MessageListener {
     public void onMessage(Message message) {
         try {
             if (message instanceof ObjectMessage) {
-                Actions item = (Actions) ((ObjectMessage) message).getObject();
-                // Here you would push update to clients (e.g., via WebSocket or similar)
-                System.out.println("Bid updated: " + item.getTitle() + " - " + item.getCurrentPrice());
+                ObjectMessage objMsg = (ObjectMessage) message;
+                BidInfo bidInfo = (BidInfo) objMsg.getObject();
+
+                System.out.println("Bid updated: " + bidInfo.getTitle() + " - $" + bidInfo.getBidAmount());
+                // Push update to clients here if needed
             }
         } catch (JMSException e) {
             e.printStackTrace();

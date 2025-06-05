@@ -1,33 +1,14 @@
 package com.auction.model;
 
-
-import jakarta.persistence.*;
-
 import java.util.Date;
 
-@Entity
-@Table(name = "contact_message")
 public class ContactMessage {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
-
-    @Column(name = "send_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date sendDate;
-
-    @Column(nullable = false, length = 45)
     private String name;
-
-    @Column(nullable = false, length = 100)
     private String email;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User user;  // Assuming you have a UserModel class
 
     // getters and setters
 

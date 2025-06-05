@@ -1,21 +1,11 @@
 package com.auction.model;
 
-import jakarta.persistence.*;
-
 import java.util.List;
 
-@Entity
-@Table(name = "status")
 public class Status {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "status_name", nullable = false, length = 45)
     private String statusName;
-
-    @OneToMany(mappedBy = "status")
-    private List<User> users;
+    private List<User> users;  // Use UserModel instead of entity
 
     // getters and setters
 

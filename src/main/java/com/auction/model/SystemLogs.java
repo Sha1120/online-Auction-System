@@ -1,27 +1,12 @@
 package com.auction.model;
 
-
-import jakarta.persistence.*;
-
 import java.util.Date;
 
-@Entity
-@Table(name = "system_logs")
 public class SystemLogs {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "log_time", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date logTime;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
-
-    @ManyToOne
-    @JoinColumn(name = "log_level_id", nullable = false)
-    private LogLevel logLevel;
+    private LogLevel logLevel;  // Use plain model class here
 
     // getters and setters
 

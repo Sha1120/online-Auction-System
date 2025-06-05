@@ -17,6 +17,11 @@
 </nav>
 <section class="form-section">
     <h2>Login</h2>
+    <% String message = (String) request.getAttribute("message"); %>
+    <% if (message != null) { %>
+    <p style="color:red;"><%= message %></p>
+    <% } %>
+
     <form action="LoginServlet" method="post">
         <input type="text" name="username" placeholder="Username or Email" required>
         <input type="password" name="password" placeholder="Password" required>

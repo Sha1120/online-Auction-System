@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@
         <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
         <a href="register.jsp">Register</a>
         <a href="contact.jsp">Contact</a>
+
     </nav>
 </header>
 

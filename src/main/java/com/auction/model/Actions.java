@@ -1,58 +1,23 @@
 package com.auction.model;
 
-import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-@Entity
-@Table(name = "actions")
 public class Actions {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(nullable = false, length = 120)
     private String title;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
-
-    @Column(name = "img_url", nullable = false, length = 250)
     private String imgUrl;
-
-    @Column(name = "start_price", nullable = false)
     private Double startPrice;
-
-    @Column(name = "current_price", nullable = false)
     private Double currentPrice;
-
-    @Column(name = "create_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
-
-    @Column(name = "end_date", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "action_status_id", nullable = false)
-    private ActionStatus actionStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
-
-    @OneToMany(mappedBy = "actions")
     private List<Bids> bids;
 
-
-    // getters and setters
-
+    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -125,27 +90,24 @@ public class Actions {
         this.user = user;
     }
 
-    public ActionStatus getActionStatus() {
-        return actionStatus;
-    }
-
-    public void setActionStatus(ActionStatus actionStatus) {
-        this.actionStatus = actionStatus;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public List<Bids> getBids() {
         return bids;
     }
 
     public void setBids(List<Bids> bids) {
         this.bids = bids;
+    }
+
+    public String getTimeRemaining() {
+        if (endDate == null) return "Unknown";
+
+        long timeDiff = endDate.getTime() - System.currentTimeMillis();
+        if (timeDiff <= 0) {
+            return "Auction ended";
+        }
+
+        long hours = TimeUnit.MILLISECONDS.toHours(timeDiff);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(timeDiff) % 60;
+        return hours + "h " + minutes + "m remaining";
     }
 }

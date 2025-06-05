@@ -1,22 +1,11 @@
 package com.auction.model;
 
-
-import jakarta.persistence.*;
-
 import java.util.List;
 
-@Entity
-@Table(name = "log_level")
 public class LogLevel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "level_name", nullable = false, length = 45)
     private String levelName;
-
-    @OneToMany(mappedBy = "logLevel")
-    private List<SystemLogs> systemLogs;
+    private List<SystemLogs> systemLogs;  // Use SystemLogsModel instead of entity
 
     // getters and setters
 
