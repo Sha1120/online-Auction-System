@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,38 +8,9 @@
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 
-<header>
-  <h1>Distributed Online Auction System</h1>
-  <p>Real-Time. Scalable. Reliable.</p>
-  <nav>
-    <%
-      String username = (String) session.getAttribute("username");
-      if (username != null) {
-    %>
-    <p>Welcome, <strong><%= username %></strong>!</p>
-    <%
-      }
-    %>
 
-    <a href="home.jsp">Home</a>
-    <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
-    <a href="contact.jsp">Contact</a>
-
-    <%
-      if (username != null) {
-    %>
-    <a href="LogoutServlet">Logout</a>
-    <%
-    } else {
-    %>
-    <a href="login.jsp">Login</a>
-    <%
-      }
-    %>
-  </nav>
-
-</header>
 
 <section class="welcome">
   <h2>Welcome to the Future of Online Auctions</h2>
@@ -74,19 +44,7 @@
   </div>
 </section>
 
-<section class="technologies">
-  <h3>Powered By</h3>
-  <ul>
-    <li>Enterprise JavaBeans (EJB) for modular business logic</li>
-    <li>Java Message Service (JMS) for asynchronous, distributed communication</li>
-    <li>Modern Java EE Application Server (e.g., Payara, GlassFish)</li>
-    <li>Responsive Web Interface for seamless user experience</li>
-  </ul>
-</section>
-
-<footer>
-  &copy; 2025 Distributed Online Auction System. All rights reserved.
-</footer>
-
+<jsp:include page="footer.jspf" />
+<script src="js/auction-bid-updates.js"></script>
 </body>
 </html>

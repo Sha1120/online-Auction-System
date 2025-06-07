@@ -11,36 +11,11 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 
 <section class="hero">
     <h2>Live & Upcoming Auctions</h2>
     <p>Bid in real-time and win exclusive items!</p>
-    <nav>
-        <%
-            String username = (String) session.getAttribute("username");
-            if (username != null) {
-        %>
-        <p>Welcome, <strong><%= username %></strong>!</p>
-        <%
-            }
-        %>
-
-        <a href="home.jsp">Home</a>
-        <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
-        <a href="contact.jsp">Contact</a>
-
-        <%
-            if (username != null) {
-        %>
-        <a href="LogoutServlet">Logout</a>
-        <%
-        } else {
-        %>
-        <a href="login.jsp">Login</a>
-        <%
-            }
-        %>
-    </nav>
 </section>
 
 <section class="auction-list">

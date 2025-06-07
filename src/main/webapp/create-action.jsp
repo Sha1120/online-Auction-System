@@ -9,16 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css"/>
 </head>
-<body>
+<body id="auction-create-body">
+<jsp:include page="header.jsp" />
 
-<section class="hero">
+<section class="auction-create-hero">
     <h2>Create New Auction</h2>
     <p>Launch an item for live bidding. Fill out the auction details below.</p>
 </section>
-<div class="form-container">
+<div id="auction-create-form-container">
     <h3><i class="fas fa-gavel"></i> Auction Details</h3>
-    <form action="CreateAuctionServlet" method="post" enctype="multipart/form-data">
-    <label for="title">Item Title</label>
+    <form id="auction-create-form" action="CreateAuctionServlet" method="post" enctype="multipart/form-data">
+        <label for="title">Item Title</label>
         <input type="text" id="title" name="title" required />
 
         <label for="desc">Description</label>
@@ -33,9 +34,7 @@
         <label for="image">Upload Image</label>
         <input type="file" id="image" name="imageFile" accept="image/*" required />
 
-
-
-        <button type="submit" class="cta-btn"><i class="fas fa-check"></i> Create Auction</button>
+        <button type="submit" class="cta-btn"> Create Auction</button>
     </form>
 </div>
 <%@ include file="footer.jspf" %>

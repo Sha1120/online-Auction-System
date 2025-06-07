@@ -94,7 +94,7 @@ public class PlaceBidServlet extends HttpServlet {
                 }
 
                 // Insert new bid
-                String insertSql = "INSERT INTO bids (bid_amount, bid_time, user_id, actions_id) VALUES (?, NOW(), ?, ?)";
+                String insertSql = "INSERT INTO bids (bid_amount, bid_time, user_id,actions_id) VALUES (?, NOW(), ?, ?)";
                 PreparedStatement insertStmt = conn.prepareStatement(insertSql);
                 insertStmt.setDouble(1, bidAmount);
                 insertStmt.setInt(2, user.getId());
@@ -121,10 +121,6 @@ public class PlaceBidServlet extends HttpServlet {
 
                 String Title = auction.getTitle();
 
-                // bind notifier
-                bidNotifier.notifyNewBid(Title, bidAmount);
-
-
                 // Fetch bids for this auction
                 String bidsSql = "SELECT b.bid_amount, b.bid_time, u.username FROM bids b JOIN user u ON b.user_id = u.id WHERE b.actions_id = ? ORDER BY b.bid_time DESC";
                 PreparedStatement bidsStmt = conn.prepareStatement(bidsSql);
@@ -143,6 +139,9 @@ public class PlaceBidServlet extends HttpServlet {
                 // Set attributes for JSP
                 request.setAttribute("auction", auction);
                 request.setAttribute("bids", bids);
+
+                // After a new bid is successfully placed and auction/bid details are updated:
+                bidNotifier.notifyNewBid(Title, bidAmount);
 
                 // Forward to JSP (not redirect)
                 request.getRequestDispatcher("auction-detail.jsp").forward(request, response);

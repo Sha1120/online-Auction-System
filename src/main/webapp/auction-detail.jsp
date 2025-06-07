@@ -10,53 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css"/>
 </head>
-<body>
+<body id="auction-detail-body">
+<jsp:include page="header.jsp" />
 
 <%-- Set loggedUser as JSTL variable --%>
 <c:set var="loggedUser" value="${sessionScope.loggedUser}" />
 
-<section class="hero">
-    <nav>
-        <%
-            String username = (String) session.getAttribute("username");
-            if (username != null) {
-        %>
-        <p>Welcome, <strong><%= username %></strong>!</p>
-        <%
-            }
-        %>
-
-        <a href="home.jsp">Home</a>
-        <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
-        <a href="contact.jsp">Contact</a>
-
-        <%
-            if (username != null) {
-        %>
-        <a href="LogoutServlet">Logout</a>
-        <%
-        } else {
-        %>
-        <a href="login.jsp">Login</a>
-        <%
-            }
-        %>
-    </nav>
-    <h2>${auction.title}</h2>
+<section class="auction-detail-hero">
+    <h2 id="auction-detail-title">${auction.title}</h2>
     <p>Auction ends in: <span style="color:darkred;">${auction.timeRemaining}</span></p>
 </section>
 
-<div class="auction-detail" style="display: flex; gap: 20px;">
-    <img src="${pageContext.request.contextPath}/${auction.imgUrl}" alt="${auction.title}" style="max-width:300px;border-radius:8px;">
+<div class="auction-detail" style="display: flex; gap: 20px;" id="auction-detail-section">
+    <img src="${pageContext.request.contextPath}/${auction.imgUrl}" id="auction-detail-image" alt="${auction.title}">
 
-    <div>
+    <div id="auction-detail-info">
         <h3>Description</h3>
         <p>${auction.description}</p>
-        <h3 style="color:red;">Current Bid: $${auction.currentPrice}</h3>
+        <h3 id="auction-detail-current-bid" style="color: #ea0808">Current Bid: $${auction.currentPrice}</h3>
 
         <p><strong>Auction Ends In:</strong> ${auction.timeRemaining}</p>
 
-        <form action="PlaceBidServlet" method="post">
+        <form action="PlaceBidServlet" method="post" id="auction-detail-bid-form">
             <input type="hidden" name="auctionId" value="${auction.id}" />
 
             <input type="number"

@@ -18,18 +18,12 @@ public class BidNotifier {
              Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
 
             connection.start();
-
             MessageProducer producer = session.createProducer(bidQueue);
 
-            // Create BidInfo object
             BidInfo bidInfo = new BidInfo(title, bidAmount);
-
-            // Create ObjectMessage with BidInfo
             ObjectMessage message = session.createObjectMessage(bidInfo);
 
-            // Send the message
             producer.send(message);
-
         } catch (JMSException e) {
             e.printStackTrace();
         }

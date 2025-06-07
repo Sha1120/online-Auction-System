@@ -7,14 +7,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css"/>
 </head>
-<body>
-<nav>
-    <a href="home.jsp">Home</a>
-    <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
-    <a href="login.jsp">Login</a>
-    <a href="contact.jsp">Contact</a>
-</nav>
-<section class="form-section">
+<body id="register-body">
+<jsp:include page="header.jsp" />
+<div id="register-div-form">
 
     <h2>Register</h2>
     <%
@@ -28,22 +23,51 @@
     <form action="RegisterServlet" method="post">
         <input type="text" name="username" placeholder="Username" required>
         <input type="email" name="email" placeholder="Email" required>
-        <div style="position:relative;">
+        <div class="register-password-wrapper">
             <input type="password" name="password" placeholder="Password" id="password" required autocomplete="new-password">
-            <button type="button" id="togglePassword" aria-label="Show password"
-                    style="position:absolute; right:5px; top:50%; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; padding:0;">
+            <button type="button" id="togglePassword" aria-label="Show password" class="register-password-toggle">
+                <i class="fa fa-eye"></i>
             </button>
         </div>
-        <div style="position:relative;">
+        <div class="register-password-wrapper">
             <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword" required autocomplete="new-password">
-            <button type="button" id="toggleConfirmPassword" aria-label="Show password"
-                    style="position:absolute; right:5px; top:50%; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; padding:0;">
+            <button type="button" id="toggleConfirmPassword" aria-label="Show password" class="register-password-toggle">
+                <i class="fa fa-eye"></i>
             </button>
         </div>
         <button type="submit" class="cta-btn">Register</button>
     </form>
     <p>Already have an account? <a href="login.jsp">Login here</a></p>
-</section>
+</div>
 <%@ include file="footer.jspf" %>
+<!-- Password toggle JS -->
+<script>
+    document.getElementById('togglePassword').onclick = function() {
+        const pwd = document.getElementById('password');
+        const icon = this.querySelector('i');
+        if (pwd.type === 'password') {
+            pwd.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            pwd.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    };
+    document.getElementById('toggleConfirmPassword').onclick = function() {
+        const pwd = document.getElementById('confirmPassword');
+        const icon = this.querySelector('i');
+        if (pwd.type === 'password') {
+            pwd.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            pwd.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    };
+</script>
 </body>
 </html>

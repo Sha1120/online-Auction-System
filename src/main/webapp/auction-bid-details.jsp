@@ -1,64 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Auction Bid Detail</title>
 </head>
 <body>
+<h1 id="auctionTitle"><%= request.getAttribute("auctionTitle") != null ? request.getAttribute("auctionTitle") : "Auction Title" %></h1>
+<p>Description: <%= request.getAttribute("auctionDescription") != null ? request.getAttribute("auctionDescription") : "" %></p>
+<p>Current Price: $<span id="currentBid"><%= request.getAttribute("currentBid") != null ? request.getAttribute("currentBid") : "0.00" %></span></p>
 
-<h1>Auction Detail Page</h1>
-
-<!-- Auction info display -->
-<div id="auction-info">
-  <h2 id="auction-title">Auction Title</h2>
-  <p id="auction-description">Description goes here...</p>
-  <p id="auction-current-price">Current Price: $<span id="price">0.00</span></p>
+<!-- Container for live bid notifications -->
+<div id="bid-notifications">
+  <h3>Live Bid Updates</h3>
 </div>
 
-<!-- Live bid updates -->
-<div id="bids">
-  <h3>Live Bids Updates</h3>
-</div>
+<!-- ... existing bid placement form ... -->
+<form action="PlaceBidServlet" method="post">
+  <input type="hidden" name="auctionId" value="${auction.id}" />
+  <input type="number"
+         name="bidAmount"
+         min="${auction.currentPrice + 1}"
+         required
+         placeholder="Your Bid"
+         <c:if test="${auction.timeRemaining == 'Auction ended'}">disabled</c:if> />
+  <button type="submit" class="cta-btn"
+          <c:if test="${auction.timeRemaining == 'Auction ended'}">disabled</c:if>>
+    Place Bid
+  </button>
+</form>
 
-<script>
-  const socket = new WebSocket('ws://localhost:8080/online-Auction-System/bidUpdates');
-
-  socket.onopen = function () {
-    console.log('WebSocket connected');
-  };
-
-  socket.onmessage = function (event) {
-    console.log('Bid Update:', event.data);
-
-    const bidsDiv = document.getElementById('bids');
-    const p = document.createElement('p');
-    p.textContent = event.data;
-    bidsDiv.appendChild(p);
-
-    // Extract price and update UI
-    const priceMatch = event.data.match(/\$([\d.]+)/);
-    if (priceMatch) {
-      const newPrice = priceMatch[1];
-      document.getElementById('price').textContent = newPrice;
-    }
-
-    // Extract title and update UI
-    const titleMatch = event.data.match(/bid on (.+?):/);
-    if (titleMatch) {
-      const newTitle = titleMatch[1];
-      document.getElementById('auction-title').textContent = newTitle;
-    }
-  };
-
-  socket.onclose = function () {
-    console.log('WebSocket disconnected');
-  };
-
-  socket.onerror = function (error) {
-    console.error('WebSocket error:', error);
-  };
-</script>
-
+<!-- Link the WebSocket JS file -->
+<script src="js/auction-bid-updates.js"></script>
 </body>
 </html>

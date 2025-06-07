@@ -1,824 +1,1337 @@
-body { font-family: Arial, sans-serif; margin: 20px; }
-h1 { color: #0077cc; }
-table { border-collapse: collapse; width: 100%; }
-th, td { border: 1px solid #ccc; padding: 8px; }
-th { background-color: #f7f7f7; }
-button { background: #0077cc; color: #fff; border: none; padding: 8px 12px; }
-button:hover { background: #005fa3; }
-form { margin: 0; }
+/*new css part*/
 
-:root {
-    --primary: #4F8A8B;
-    --secondary: #FBD46D;
-    --accent: #F47C7C;
-    --bg: #f3f6fa;
-    --text: #222831;
-}
-body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
-header {
-    background: var(--primary);
+/* Header main container */
+#header-body {
+    background: linear-gradient(90deg, #282c34 0%, #4663ac 100%);
     color: #fff;
-    padding: 2rem 0 1rem 0;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    width: 100%;
 }
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-}
-header p {
-    margin-top: 0.6rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-nav {
-    margin-top: 1rem;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background 0.2s;
-}
-nav a:hover {
-    background: var(--secondary);
-    color: var(--primary);
-}
-.hero {
-    padding: 3rem 1rem;
-    text-align: center;
-    background: linear-gradient(120deg, #93e1d8 0%, #fbd46d 100%);
-}
-.hero h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-.cta-btn {
-    background: var(--primary);
-    color: #fff;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s;
-}
-.cta-btn:hover {
-    background: var(--accent);
-}
-.features {
+
+#header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin: 3rem 0;
-    padding: 0 2rem;
-}
-.feature-card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    flex: 1 1 260px;
-    max-width: 320px;
-    min-width: 250px;
-    padding: 2rem 1.5rem;
-    text-align: center;
-    transition: transform 0.2s;
-}
-.feature-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-}
-.feature-card i {
-    font-size: 2.5rem;
-    color: var(--secondary);
-    margin-bottom: 1rem;
-}
-.feature-card h3 {
-    margin-bottom: 0.7rem;
-    font-size: 1.3rem;
-    color: var(--primary);
-}
-.feature-card p {
-    font-size: 1rem;
-    color: #444;
-}
-footer {
-    background: var(--primary);
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 1rem;
-    margin-top: 2rem;
-}
-@media (max-width: 900px) {
-    .features {
-        flex-direction: column;
-        align-items: center;
-    }
+    align-items: center;
+    padding: 0.75rem 2rem;
 }
 
-:root {
-    --primary: #4F8A8B;
-    --secondary: #FBD46D;
-    --accent: #F47C7C;
-    --bg: #f3f6fa;
-    --text: #222831;
-}
-body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
-nav {
-    background: var(--primary);
-    text-align: center;
-    padding: 1rem 0;
-}
-nav a {
-    color: #fff;
+/* Logo / Brand */
+#header-logo-link {
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background 0.2s;
-}
-nav a:hover {
-    background: var(--secondary);
-    color: var(--primary);
-}
-.form-section {
-    max-width: 400px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    text-align: center;
-}
-.form-section h2 {
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-}
-.form-section input, .form-section textarea {
-    width: 90%;
-    margin: 0.5rem 0;
-    padding: 0.7rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-.cta-btn {
-    background: var(--primary);
-    color: #fff;
-    padding: 0.7rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s;
-    margin-top: 1rem;
-}
-.cta-btn:hover {
-    background: var(--accent);
-}
-.form-section p {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-}
-.form-section a {
-    color: var(--primary);
-    text-decoration: underline;
-    font-weight: 600;
-}
-@media (max-width: 600px) {
-    .form-section {
-        padding: 1rem;
-        max-width: 98%;
-    }
-    nav a {
-        font-size: 0.95rem;
-        margin: 0 0.3rem;
-        padding: 0.5rem 0.7rem;
-    }
+    color: inherit;
+    display: flex;
+    align-items: center;
 }
 
-:root {
-    --primary: #4F8A8B;
-    --secondary: #FBD46D;
-    --accent: #F47C7C;
-    --bg: #f3f6fa;
-    --text: #222831;
+#header-logo-img {
+    height: 44px;
+    margin-right: 16px;
 }
-body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+
+#header-title {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-nav {
-    background: var(--primary);
-    text-align: center;
-    padding: 1rem 0;
+
+/* Navigation Bar */
+#header-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
 }
-nav a {
+
+.header-nav-link {
     color: #fff;
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background 0.2s;
+    font-size: 1.05rem;
+    margin-right: 24px;
+    transition: color 0.2s;
 }
-nav a:hover {
-    background: var(--secondary);
-    color: var(--primary);
+
+.header-nav-link:hover {
+    color: #FFD700;
 }
-.form-section {
-    max-width: 400px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    text-align: center;
-}
-.form-section h2 {
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-}
-.form-section .message {
-    margin-bottom: 1.2rem;
-    padding: 0.8rem 1rem;
-    background: var(--accent);
+
+#header-username {
     color: #fff;
-    border-radius: 8px;
-    font-weight: 600;
+    font-weight: 500;
+    margin-right: 18px;
 }
-.form-section input, .form-section textarea {
-    width: 340px;
-    margin: 0.5rem 0;
-    padding: 0.7rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+
+.header-auth-link {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-right: 0;
+    margin-left: 10px;
 }
-.form-section button[type="submit"], .cta-btn {
-    background: var(--primary);
-    color: #fff;
-    padding: 0.7rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: background 0.2s;
-    margin-top: 1rem;
-}
-.form-section button[type="submit"]:hover, .cta-btn:hover {
-    background: var(--accent);
-}
-.form-section p {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-}
-.form-section a {
-    color: var(--primary);
+
+.header-auth-link:hover {
     text-decoration: underline;
-    font-weight: 600;
+    color: #fff;
 }
-.form-section div[style*="position:relative"] {
-    width: 90%;
-    margin: 0.5rem auto;
+
+/* Dropdown container */
+.header-dropdown-link {
     position: relative;
-}
-.form-section button[aria-label="Show password"] {
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-@media (max-width: 600px) {
-    .form-section {
-        padding: 1rem;
-        max-width: 98%;
-    }
-    nav a {
-        font-size: 0.95rem;
-        margin: 0 0.3rem;
-        padding: 0.5rem 0.7rem;
-    }
+    display: inline-block;
 }
 
-:root {
-    --primary: #4F8A8B;
-    --secondary: #FBD46D;
-    --accent: #F47C7C;
-    --bg: #f3f6fa;
-    --text: #222831;
+/* Button shown as the dropdown toggle */
+.header-dropbtn-link {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-weight: bold;
 }
-body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+
+/* Dropdown content (initially hidden) */
+.header-dropdown-content-link {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
 }
-header {
-    background: var(--primary);
-    color: #fff;
-    padding: 2rem 0 1rem 0;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-}
-header p {
-    margin-top: 0.6rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-nav {
-    margin-top: 1rem;
-}
-nav a {
-    color: #fff;
+
+/* Dropdown links */
+.header-dropdown-content-link a {
+    color: black;
+    padding: 10px 16px;
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background 0.2s;
+    display: block;
+    font-size: 14px;
 }
-nav a:hover {
-    background: var(--secondary);
-    color: var(--primary);
+
+.header-dropdown-content-link a:hover {
+    background-color: #f2f2f2;
 }
+
+/* Show dropdown on hover */
+.header-dropdown-link:hover .header-dropdown-content-link {
+    display: block;
+}
+
+/* Change button style on hover */
+.header-dropdown-link:hover .header-dropbtn-link {
+    text-decoration: underline;
+}
+
+/* Login button */
+.header-auth-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.header-auth-link:hover {
+    text-decoration: underline;
+}
+
+/* ====== Home Page Styles ====== */
+#home-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .welcome {
+    background: #4663ac;
+    color: #fff;
     padding: 3rem 1rem 2rem 1rem;
     text-align: center;
-    background: linear-gradient(120deg, #93e1d8 0%, #fbd46d 100%);
 }
+
 .welcome h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
+
 .welcome p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.6;
 }
+
+.header-user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#header-username {
+    color: #fff;
+    margin-right: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+}
+
+.header-user-dropdown .fa-caret-up {
+    margin-left: 6px;
+    font-size: 0.85em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 110%; /* show above the username */
+    right: 0;
+    background-color: #24243e;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(36,36,62,0.13);
+    border-radius: 7px;
+    z-index: 100;
+    text-align: right;
+    padding: 6px 0;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+    transition: background 0.18s;
+}
+
+.dropdown-content a:hover {
+    background-color: #302b63;
+}
+
+.header-user-dropdown:hover .dropdown-content,
+.header-user-dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* ====== System Details Section ====== */
 .system-details {
-    max-width: 900px;
-    margin: 2rem auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
     justify-content: center;
-}
-.detail-card {
+    gap: 2rem;
+    padding: 2.5rem 1rem;
     background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    flex: 1 1 260px;
-    max-width: 320px;
-    min-width: 250px;
+    flex-wrap: wrap;
+}
+
+.detail-card {
+    background: #f1f5fa;
+    border-radius: 10px;
     padding: 2rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(70,99,172,0.06);
+    flex: 1 1 260px;
+    max-width: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+    min-width: 220px;
     text-align: center;
 }
+
 .detail-card i {
-    font-size: 2.5rem;
-    color: var(--secondary);
+    font-size: 2.3rem;
+    color: #4663ac;
     margin-bottom: 1rem;
 }
+
 .detail-card h3 {
-    color: var(--primary);
-    margin-bottom: 0.7rem;
+    margin: 0.5rem 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-weight: 700;
 }
+
 .detail-card p {
     font-size: 1rem;
-    color: #444;
+    color: #333a49;
+    line-height: 1.5;
+    margin: 0;
 }
+
+/* ====== Technologies Section ====== */
 .technologies {
-    background: #fff;
-    border-radius: 15px;
-    margin: 2rem auto;
-    max-width: 700px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background: #f1f5fa;
+    padding: 2rem 1rem 3rem 1rem;
     text-align: center;
 }
+
 .technologies h3 {
-    color: var(--primary);
+    font-size: 1.3rem;
     margin-bottom: 1rem;
 }
+
 .technologies ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0 auto;
     display: inline-block;
     text-align: left;
 }
+
 .technologies li {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    padding-left: 1.6em;
+    font-size: 1.07rem;
+    margin: 0.4rem 0;
+    padding-left: 1.2em;
     position: relative;
 }
+
 .technologies li:before {
-    content: '✔';
-    color: var(--secondary);
+    content: "•";
     position: absolute;
     left: 0;
+    color: #4663ac;
+    font-weight: bold;
 }
+
+/* ====== Footer Styles ====== */
 footer {
-    background: var(--primary);
-    color: #fff;
+    background: #282c34;
+    color: #bfc8e5;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.1rem 0;
     font-size: 1rem;
-    margin-top: 2rem;
+    margin-top: auto;
+    letter-spacing: 0.03em;
 }
+
+/* ====== Toast Notification Styles ====== */
+#toast-container {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#toast-container .toast {
+    background: rgba(40,40,40,0.96);
+    color: #fff;
+    padding: 16px 24px;
+    margin-top: 12px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.5s;
+    min-width: 220px;
+    max-width: 320px;
+    pointer-events: auto;
+}
+
+/* ====== Responsive Styles ====== */
 @media (max-width: 900px) {
     .system-details {
         flex-direction: column;
         align-items: center;
     }
-}
-
-:root {
-    --primary: #4F8A8B;
-    --secondary: #FBD46D;
-    --accent: #F47C7C;
-    --bg: #f3f6fa;
-    --text: #222831;
-    --white: #fff;
-    --card-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-body {
-    margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-}
-.hero {
-    text-align: center;
-    padding: 2.5rem 1rem 2rem 1rem;
-    background: linear-gradient(100deg, #93e1d8 0%, #fbd46d 100%);
-    animation: fadeInDown 1s;
-}
-.hero h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-    text-shadow: 1px 2px 12px #eee;
-    letter-spacing: 1px;
-    animation: slideInLeft 1s 0.1s backwards;
-}
-.hero p {
-    font-size: 1.1rem;
-    color: #333;
-    opacity: 0.88;
-    animation: fadeIn 1.3s 0.2s backwards;
-}
-.form-container {
-    max-width: 520px;
-    margin: 2.5rem auto 0 auto;
-    background: var(--white);
-    border-radius: 22px;
-    box-shadow: var(--card-shadow);
-    padding: 2.5rem 2rem 2rem 2rem;
-    animation: fadeInUp 1.1s;
-}
-.form-container h3 {
-    color: var(--primary);
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
-    text-align: center;
-}
-form label {
-    display: block;
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin-top: 1.1rem;
-}
-form input, form textarea, form select {
-    width: 100%;
-    padding: 0.8rem 0.8rem;
-    margin-bottom: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 9px;
-    font-size: 1rem;
-    background: #fafafa;
-    transition: border-color 0.2s;
-    font-family: 'Montserrat', Arial, sans-serif;
-}
-form input:focus, form textarea:focus, form select:focus {
-    border-color: var(--primary);
-    outline: none;
-    background: #fafdff;
-}
-form textarea {
-    min-height: 80px;
-    resize: vertical;
-}
-.cta-btn {
-    background: var(--primary);
-    color: #fff;
-    padding: 0.75rem 2.2rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 35px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: background 0.2s, transform 0.16s;
-    margin-top: 0.7rem;
-}
-.cta-btn:hover {
-    background: var(--accent);
-    transform: scale(1.06);
-    box-shadow: 0 4px 16px #F47C7C44;
-}
-footer {
-    background: var(--primary);
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    font-size: 1rem;
-    margin-top: 2rem;
-}
-@media (max-width: 700px) {
-    .form-container {
-        padding: 1.1rem 0.7rem;
+    .detail-card {
+        max-width: 90%;
     }
 }
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-40px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeIn {
-    from { opacity: 0;}
-    to { opacity: 1;}
-}
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-60px);}
-    to { opacity: 1; transform: translateX(0);}
+
+@media (max-width: 600px) {
+    .welcome h2 {
+        font-size: 1.6rem;
+    }
+    .detail-card {
+        padding: 1.2rem 0.8rem;
+    }
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+/* ====== Auctions Page Styles ====== */
+
+#auctions-body {
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    background: #4663ac;
+    color: #fff;
     text-align: center;
-    padding: 40px 20px;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+}
+
+#auction-div-title {
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
 }
 
 .hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
     font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .hero p {
+    font-size: 1.15rem;
     font-weight: 400;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin: 0 auto;
+    max-width: 650px;
+    line-height: 1.5;
 }
 
-.hero nav {
-    margin-top: 20px;
-}
-
-.hero nav a, .hero nav p {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: 500;
-}
-
-.hero nav a:hover {
-    text-decoration: underline;
-}
-
+/* Auction List Section */
 .auction-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 30px 20px;
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2.5rem 1rem 3rem 1rem;
+    background: #fff;
 }
 
 .auction-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    overflow: hidden;
+    background: #f1f5fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(70,99,172,0.08);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    flex: 1 1 270px;
+    max-width: 310px;
+    min-width: 230px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    align-items: center;
+    margin: 0.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .auction-card:hover {
-    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(70,99,172,0.18);
+    transform: translateY(-7px) scale(1.03);
 }
 
 .auction-img {
     width: 100%;
-    height: 250px;
+    max-width: 210px;
+    height: 240px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    display: block;
+    border-radius: 7px;
+    margin-bottom: 1rem;
+    background: #e3e7ed;
+    box-shadow: 0 1px 7px rgba(70,99,172,0.08);
 }
 
 .auction-card h3 {
-    font-size: 1.4rem;
-    margin: 15px 20px 5px 20px;
-    color: #222;
+    font-size: 1.15rem;
+    margin: 0.7rem 0 0.4rem 0;
+    font-weight: 700;
+    color: #272f44;
 }
 
 .auction-card p {
-    margin: 5px 20px 10px 20px;
     font-size: 1rem;
-    line-height: 1.3;
-}
-
-.auction-card p strong {
-    font-weight: 700;
+    color: #324169;
+    margin: 0.3rem 0 0.7rem 0;
 }
 
 .cta-btn {
     display: inline-block;
-    background-color: #667eea;
-    color: white;
-    text-align: center;
-    padding: 12px 20px;
-    margin: 10px 20px 20px 20px;
-    border-radius: 5px;
+    background: linear-gradient(90deg, #4663ac 60%, #6bb9f7 100%);
+    color: #fff;
     font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.7rem 1.7rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0.8rem;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(70,99,172,0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    cursor: pointer;
 }
 
 .cta-btn:hover {
-    background-color: #5a67d8;
+    background: linear-gradient(90deg, #6bb9f7 0%, #4663ac 100%);
+    box-shadow: 0 4px 16px rgba(70,99,172,0.20);
+    transform: translateY(-2px) scale(1.04);
 }
 
-/* Responsive tweaks */
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .auction-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .auction-card {
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 600px) {
-    .hero h2 {
-        font-size: 1.8rem;
+    .hero h2, #auction-div-title {
+        font-size: 1.3rem;
     }
-
-    .auction-card h3 {
-        font-size: 1.2rem;
+    .auction-card {
+        padding: 1rem 0.5rem;
     }
-
-    .auction-card p {
-        font-size: 0.9rem;
+    .auction-img {
+        max-width: 98vw;
+        height: 110px;
     }
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f7fa;
-    color: #333;
-}
+/* ====== Auction Detail Page Styles ====== */
 
-.hero {
-    background-color: #0077cc;
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-    border-bottom: 4px solid #005fa3;
-}
-
-.hero nav {
-    margin-top: 10px;
-}
-
-.hero nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.hero nav a:hover {
-    color: #ffdd57;
-}
-
-.auction-detail {
+#auction-detail-body {
+    background: #f8fafc;
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.auction-detail-hero {
+    background: #4663ac;
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+}
+
+#auction-detail-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.auction-detail-hero p {
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+#auction-detail-section {
+    display: flex;
+    gap: 32px;
     justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
-    gap: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    max-width: 1000px;
-    margin: 40px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 11px;
+    box-shadow: 0 2px 18px rgba(70,99,172,0.08);
+    margin: 2.5rem auto 2rem auto;
+    padding: 2.2rem 2rem;
+    max-width: 950px;
 }
 
-.auction-detail img {
-    max-width: 300px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-}
-
-.auction-detail div {
-    flex: 1;
-    min-width: 300px;
-}
-
-.auction-detail h3 {
-    margin-top: 20px;
-    color: #444;
-}
-
-.auction-detail p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-form {
-    margin-top: 20px;
-}
-
-input[type="number"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-    border: 2px solid #0077cc;
+#auction-detail-image {
+    max-width: 320px;
     border-radius: 8px;
-    outline: none;
-    margin-right: 10px;
+    object-fit: cover;
+    box-shadow: 0 1px 14px rgba(70,99,172,0.08);
+    background: #e3e7ed;
 }
 
-input[type="number"]:disabled {
-    background-color: #eee;
+#auction-detail-info {
+    flex: 1;
+}
+
+#auction-detail-info h3 {
+    font-size: 1.17rem;
+    margin-bottom: 0.4rem;
+    color: #4663ac;
+}
+
+#auction-detail-info p {
+    font-size: 1.05rem;
+    color: #333a49;
+    margin-bottom: 0.7rem;
+}
+
+#auction-detail-current-bid {
+    color: #db3636;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+#auction-detail-info strong {
+    color: #4663ac;
+}
+
+#auction-detail-bid-form {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+#auction-detail-bid-form input[type="number"] {
+    padding: 0.6rem 1rem;
+    font-size: 1.05rem;
+    border: 1px solid #bfc8e5;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.2s;
+    max-width: 260px;
+    margin-bottom: 0.7rem;
+}
+
+#auction-detail-bid-form input[type="number"]:focus {
+    border: 1.5px solid #ea0808;
 }
 
 .cta-btn {
-    padding: 10px 20px;
-    background-color: #0077cc;
+    display: inline-block;
+    background: linear-gradient(90deg, #4663ac 60%, #6bb9f7 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.7rem 1.7rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 0.8rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(70,99,172,0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    cursor: pointer;
+}
+
+.cta-btn[disabled],
+.cta-btn:disabled {
+    background: #d9534f !important;
+    color: #fff;
+    cursor: not-allowed;
+    filter: grayscale(0.1);
+    opacity: 0.85;
+}
+
+.cta-btn:hover:not([disabled]) {
+    background: linear-gradient(90deg, #6bb9f7 0%, #4663ac 100%);
+    box-shadow: 0 4px 16px rgba(70,99,172,0.20);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    #auction-detail-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.3rem 0.7rem;
+    }
+    #auction-detail-image {
+        max-width: 95vw;
+        margin-bottom: 1.1rem;
+    }
+    #auction-detail-info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .auction-detail-hero, #auction-detail-title {
+        font-size: 1.2rem;
+        padding: 1.5rem 0.4rem;
+    }
+    #auction-detail-section {
+        padding: 0.7rem 0.1rem;
+    }
+    #auction-detail-image {
+        height: 145px;
+    }
+}
+
+/* ====== Create Auction Page Styles ====== */
+
+#auction-create-body {
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.auction-create-hero {
+    background: #4663ac;
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+}
+
+.auction-create-hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.auction-create-hero p {
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+/* Form Container */
+#auction-create-form-container {
+    width: 70%; /* Increase width as needed */
+    max-width: 800px; /* Optional: limit max width */
+    margin: 30px auto; /* Center horizontally */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#auction-create-form-container h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4663ac;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+#auction-create-form {
+    width: 100%; /* Takes full width of container */
+    display: flex;
+    flex-direction: column;
+}
+
+#auction-create-form label {
+    font-weight: 600;
+    color: #324169;
+    margin-bottom: 0.15rem;
+    display: block;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+#auction-create-form input[type="text"],
+#auction-create-form input[type="number"],
+#auction-create-form input[type="datetime-local"],
+#auction-create-form textarea,
+#auction-create-form input[type="file"] {
+    width: 100%;
+    padding: 0.62rem 1rem;
+    border: 1px solid #bfc8e5;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    background: #f5f8fc;
+    margin-top: 0.15rem;
+    transition: border 0.2s;
+    outline: none;
+    resize: none;
+}
+
+#auction-create-form input,
+#auction-create-form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%; /* Stretch inputs full width */
+    box-sizing: border-box;
+}
+
+.cta-btn {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .cta-btn:hover {
-    background-color: #005fa3;
+    background-color: #45a049;
 }
 
-.cta-btn:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
+#auction-create-form textarea {
+    min-height: 90px;
+    max-height: 200px;
 }
+
+#auction-create-form input[type="text"]:focus,
+#auction-create-form input[type="number"]:focus,
+#auction-create-form input[type="datetime-local"]:focus,
+#auction-create-form textarea:focus {
+    border: 1.5px solid #4663ac;
+    background: #fff;
+}
+
+#auction-create-form input[type="file"] {
+    background: #fff;
+    padding: 0.45rem 1rem;
+}
+
+#auction-create-form .cta-btn {
+    margin-top: 0.7rem;
+    font-size: 1.07rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #4663ac 60%, #6bb9f7 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(70,99,172,0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#auction-create-form .cta-btn:hover {
+    background: linear-gradient(90deg, #6bb9f7 0%, #4663ac 100%);
+    box-shadow: 0 4px 16px rgba(70,99,172,0.20);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #auction-create-form-container {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+    }
+    .auction-create-hero h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ====== Login Page Styles ====== */
+
+#login-body {
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#login-div-form {
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 3rem auto 2rem auto;
+    padding: 2rem 2.2rem 2.2rem 2.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(70,99,172,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-div-form h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4663ac;
+    margin-bottom: 1.4rem;
+    letter-spacing: 1px;
+}
+
+#login-div-form .login-error-message {
+    color: #d9534f;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+#login-div-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.05rem;
+    margin-bottom: 0.8rem;
+}
+
+#login-div-form input[type="text"],
+#login-div-form input[type="password"] {
+    padding: 0.62rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #bfc8e5;
+    font-size: 1.06rem;
+    background: #f5f8fc;
+    transition: border 0.2s;
+    outline: none;
+    margin-bottom: 0.1rem;
+}
+
+#login-div-form input[type="text"]:focus,
+#login-div-form input[type="password"]:focus {
+    border: 1.5px solid #4663ac;
+    background: #fff;
+}
+
+#login-div-form .cta-btn {
+    margin-top: 0.7rem;
+    font-size: 1.07rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #4663ac 60%, #6bb9f7 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(70,99,172,0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+#login-div-form .cta-btn:hover {
+    background: linear-gradient(90deg, #6bb9f7 0%, #4663ac 100%);
+    box-shadow: 0 4px 16px rgba(70,99,172,0.20);
+    transform: translateY(-2px) scale(1.04);
+}
+
+#login-div-form p {
+    margin-top: 1.1rem;
+    font-size: 1rem;
+    color: #324169;
+}
+
+#login-div-form p a {
+    color: #4663ac;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+#login-div-form p a:hover {
+    color: #6bb9f7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #login-div-form {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+    }
+    #login-div-form h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ====== Register Page Styles ====== */
+
+#register-body {
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#register-div-form {
+    background: #fff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 3rem auto 2rem auto;
+    padding: 2rem 2.2rem 2.2rem 2.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(70,99,172,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#register-div-form h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4663ac;
+    margin-bottom: 1.4rem;
+    letter-spacing: 1px;
+}
+
+#register-div-form .message {
+    color: #d9534f;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+#register-div-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.05rem;
+    margin-bottom: 0.8rem;
+}
+
+#register-div-form input[type="text"],
+#register-div-form input[type="email"],
+#register-div-form input[type="password"] {
+    padding: 0.62rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #bfc8e5;
+    font-size: 1.06rem;
+    background: #f5f8fc;
+    transition: border 0.2s;
+    outline: none;
+    margin-bottom: 0.1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#register-div-form input[type="text"]:focus,
+#register-div-form input[type="email"]:focus,
+#register-div-form input[type="password"]:focus {
+    border: 1.5px solid #4663ac;
+    background: #fff;
+}
+
+/* Password toggle button */
+.register-password-toggle {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #4663ac;
+    font-size: 1.1rem;
+}
+
+/* Input wrapper for password fields */
+.register-password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#register-div-form .cta-btn {
+    margin-top: 0.7rem;
+    font-size: 1.07rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #4663ac 60%, #6bb9f7 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(70,99,172,0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+#register-div-form .cta-btn:hover {
+    background: linear-gradient(90deg, #6bb9f7 0%, #4663ac 100%);
+    box-shadow: 0 4px 16px rgba(70,99,172,0.20);
+    transform: translateY(-2px) scale(1.04);
+}
+
+#register-div-form p {
+    margin-top: 1.1rem;
+    font-size: 1rem;
+    color: #324169;
+}
+
+#register-div-form p a {
+    color: #4663ac;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+#register-div-form p a:hover {
+    color: #6bb9f7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #register-div-form {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+    }
+    #register-div-form h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ====== My Bids & Auctions Styles ====== */
+
+#my-bids-body {
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-section {
+    max-width: 900px;
+    margin: 2.5rem auto 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 18px rgba(70,99,172,0.09);
+    padding: 2rem 1.5rem 2.5rem 1.5rem;
+}
+
+.my-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4663ac;
+    margin-bottom: 1.7rem;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.my-auction-list,
+.my-bid-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.my-auction-card, .my-bid-card {
+    background: #f1f5fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(70,99,172,0.05);
+    padding: 1.3rem 1.3rem 1rem 1.3rem;
+    min-width: 240px;
+    max-width: 300px;
+    flex: 1 1 240px;
+    margin-bottom: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.my-auction-card:hover,
+.my-bid-card:hover {
+    box-shadow: 0 6px 20px rgba(70,99,172,0.16);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.my-auction-title, .my-bid-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #272f44;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.my-auction-detail, .my-bid-detail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.my-auction-label, .my-bid-label {
+    color: #4663ac;
+    font-weight: 600;
+    margin-right: 7px;
+}
+
+.my-auction-value, .my-bid-value {
+    color: #324169;
+    font-weight: 500;
+}
+
+.my-empty-msg {
+    color: #db3636;
+    background: #fbe3e3;
+    border-radius: 6px;
+    padding: 1.1rem 1.3rem;
+    font-size: 1.08rem;
+    margin: 1rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .my-section {
+        max-width: 98vw;
+        padding: 1.2rem 0.6rem;
+    }
+    .my-auction-list, .my-bid-list {
+        flex-direction: column;
+        gap: 1rem 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .my-section-title {
+        font-size: 1.2rem;
+    }
+    .my-auction-card, .my-bid-card {
+        padding: 0.8rem 0.4rem;
+        min-width: 95vw;
+    }
+}
+
+.mybid-auction-img {
+    width: 100%;
+    max-width: 210px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 1rem;
+    background: #e3e7ed;
+    box-shadow: 0 1px 7px rgba(70,99,172,0.08);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* General Styles */
+body#index-body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #f8f9fb;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+#index-div {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background: #24243e;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Hero Section */
+section.hero {
+    background: linear-gradient(135deg, #24243e 0%, #302b63 100%);
+    color: #fff;
+    padding: 60px 20px 40px 20px;
+    text-align: center;
+}
+
+section.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+section.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    font-weight: 400;
+}
+
+.cta-btn {
+    background: #ff7e5f;
+    color: #fff;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+.cta-btn:hover {
+    background: #feb47b;
+}
+
+/* Features Section */
+section.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 10px;
+    gap: 30px;
+    background: #fff;
+}
+
+.feature-card {
+    background: #f0f0f7;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(36,36,62,0.07);
+    padding: 24px 32px;
+    max-width: 280px;
+    min-width: 220px;
+    text-align: center;
+    flex: 1 1 220px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(36,36,62,0.16);
+}
+
+.feature-card i {
+    font-size: 2.6rem;
+    color: #302b63;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    color: #444;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    background: #24243e;
+    color: #fff;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    section.features {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-card {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    section.hero h2 {
+        font-size: 1.7rem;
+    }
+    .cta-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+    .feature-card {
+        padding: 18px 10px;
+    }
+}
+
+
+
+
 

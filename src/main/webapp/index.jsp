@@ -12,32 +12,24 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-
-<header>
-    <h1>Online Auction System</h1>
-    <p>Bid, win, and experience the thrill of online auctions!</p>
-    <nav>
-        <a href="home.jsp">Home</a>
-        <a href="${pageContext.request.contextPath}/auctions">Auctions</a>
-        <a href="register.jsp">Register</a>
-        <a href="contact.jsp">Contact</a>
-
-    </nav>
-</header>
+<jsp:include page="header.jsp" />
 
 <section class="hero">
     <h2>Welcome to the Future of Auctions</h2>
     <p>Discover exclusive items, place your bids, and win amazing deals—all from the comfort of your home.</p>
+
+    <%@ page contentType="text/html; charset=UTF-8" language="java" %>
     <%
-        String loggedUser = (String) session.getAttribute("loggedUser");
-        String redirectURL;
-        if (loggedUser != null) {
-            redirectURL = request.getContextPath() + "/auctions";
+        String redirectPage;
+        if (session.getAttribute("username") != null) {
+            redirectPage = "auctions";
         } else {
-            redirectURL = "login.jsp";
+            redirectPage = "login.jsp";
         }
     %>
-    <button class="cta-btn" onclick="window.location.href='<%= redirectURL %>'">Start Bidding Now</button>
+    <!-- ... in your HTML ... -->
+    <button class="cta-btn" onclick="window.location.href='<%= redirectPage %>'">Start Bidding Now</button>
+
 </section>
 
 <section class="features">

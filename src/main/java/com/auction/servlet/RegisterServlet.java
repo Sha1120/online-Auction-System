@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -44,11 +43,25 @@ public class RegisterServlet extends HttpServlet {
 
         if (!password.equals(confirmPassword)) {
             request.setAttribute("message", "Passwords do not match!");
-            request.getRequestDispatcher("registration.jsp").forward(request, response);
+            request.getRequestDispatcher("register.jsp").forward(request, response);
             return;
         }
 
         try (Connection conn = dataSource.getConnection()) {
+
+            // Check if username or email already exists
+            String checkSql = "SELECT COUNT(*) FROM user WHERE username = ? OR email = ?";
+            try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+                checkStmt.setString(1, username);
+                checkStmt.setString(2, email);
+                try (ResultSet rs = checkStmt.executeQuery()) {
+                    if (rs.next() && rs.getInt(1) > 0) {
+                        request.setAttribute("message", "Username or email already registered!");
+                        request.getRequestDispatcher("register.jsp").forward(request, response);
+                        return;
+                    }
+                }
+            }
 
             // Set default status_id to 1 (you can change based on your DB)
             int defaultStatusId = 1;
@@ -64,17 +77,18 @@ public class RegisterServlet extends HttpServlet {
             int rows = stmt.executeUpdate();
 
             if (rows > 0) {
+                // Use session or request attribute if you want to show on login.jsp
                 request.setAttribute("message", "Registration successful. Please log in.");
                 response.sendRedirect("login.jsp");
             } else {
                 request.setAttribute("message", "Registration failed. Try again.");
-                request.getRequestDispatcher("registration.jsp").forward(request, response);
+                request.getRequestDispatcher("register.jsp").forward(request, response);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("message", "Database error: " + e.getMessage());
-            request.getRequestDispatcher("registration.jsp").forward(request, response);
+            request.getRequestDispatcher("register.jsp").forward(request, response);
         }
     }
 }

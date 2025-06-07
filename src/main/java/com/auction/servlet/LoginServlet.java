@@ -50,9 +50,11 @@ public class LoginServlet extends HttpServlet {
                     if (rs.next()) {
                         // User found, create session
                         String userName = rs.getString("username");
+                        int userId = rs.getInt("id");
 
                         HttpSession session = request.getSession();
                         session.setAttribute("username", userName);
+                        session.setAttribute("loggedUserId", String.valueOf(userId));
 
                         response.sendRedirect("home.jsp");
                     } else {
